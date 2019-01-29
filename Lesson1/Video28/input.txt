@@ -1,0 +1,6 @@
+Read and write to this file.
+
+What am I doing here?
+
+This is not a good example of a file
+
