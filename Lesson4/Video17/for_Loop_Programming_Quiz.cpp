@@ -5,10 +5,15 @@
 # include <iostream>
 
 int main() {
-	float a, b, c, d, e;
+	float num;
+	float sum = 0;
 
-	std::cin >> a >> b >> c >> d >> e;
-	std::cout << (a + b + c + d + e) << std::endl;
-	std::cout << (a + b + c + d + e) / 5 << std::endl;
+	for (int i = 0; i < 5; i++) {
+		std::cout << "What is the next number?" << std::endl;
+		std::cin >> num;
+		sum = sum + num;
+	}
+	std::cout << sum << std::endl;
+	std::cout << sum / 5 << std::endl;
 	return 0;
 }
