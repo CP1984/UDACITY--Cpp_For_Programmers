@@ -1,0 +1,18 @@
+a = 0
+a = 1
+a = 2
+The first statement after the first while loop
+
+After continue a = 4
+After continue a = 5
+After continue a = 6
+After continue a = 7
+After continue a = 8
+After continue a = 9
+	When a=10, go back to the top of the loop
+	This means a=10 is skipped.
+After continue a = 11
+After continue a = 12
+After continue a = 13
+After continue a = 14
+After continue a = 15
