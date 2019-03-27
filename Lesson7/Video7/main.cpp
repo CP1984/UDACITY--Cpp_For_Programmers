@@ -1,14 +1,9 @@
-/*Goal: Practice putting functions in a header file.
-**Move the function declaration and definition to the header file.
-**Don't forget to include the header file (main.hpp) in the main program.
-*/
-
 /*GOAL: Practice writing functions
 
-/*Write a function called printProduct that prints the results of the multiplication
-**of two integers.
-*/
-#include<iostream>
+ /*Write a function that prints the results of the multiplication
+ **of two integers.
+ */
+
 #include "main.hpp"
 
 int main()
@@ -19,11 +14,7 @@ int main()
 
 	product = m1 * m2;
 
+	//call the function
 	printProduct(m1, m2, product);
 	return 0;
-}
-
-void printProduct(int m1, int m2, int product)
-{
-	std::cout << m1 << " * " << m2 << " = " << product;
 }
