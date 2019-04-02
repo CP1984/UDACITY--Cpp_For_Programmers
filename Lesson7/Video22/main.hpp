@@ -1,17 +1,27 @@
 /*The header file for main.cpp
-**This file has functions called from main.
-*/
+ **This file has functions called from main.
+ */
 
+#include<iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
 
-void getUserInformation(string name, string number, string address);
-void getRoomIChoice();
+ //Cost of materials for the remodel
+const float PAINTCOST = .50; //per square foot
+const float WALLPAPERCOST = 2.00; //per square foot
+const float CARPETCOST = 4.00; //per square foot
+const float TILECOST = 5.50; //per square foot
+const float WOODCOST = 6.00; //per square foot
+
+using namespace std;
+
+void getUserInformation(string &name, string &number, string &address);
+string getRoomChoice();
 int getTaskAssignment();
 void printTask(int task);
-void getRoomInformation(int task, float roomWidth, float roomDepth, float roomHeight);
-void printJobInformation(string userName, string phoneNumber, string userAddress, string remodelRoom, int task);
+void getRoomInformation(int task, float &roomWidth, float &roomDepth, float &roomHeight);
+void printJobInformation(string userName, string phoneNumber, string userAddress, string                remodelRoom, int task);
 float calcWallSurfaceArea(float roomWidth, float roomDepth, float roomHeight);
 float calcPaintCost(float wallSurfaceArea);
 float calcWallPaperCost(float wallSurfaceArea);
@@ -25,13 +35,13 @@ void printFloorCostComparisons(float carpetCost, float tileCost, float woodFloor
 void getUserInformation(string &userName, string &phoneNumber, string &userAddress)
 {
 	cout << "Customer Name: \n";
-	getline(cin, userName);
+	getline(std::cin, userName);
 
 	cout << "Customer Phone Number: \n";
-	getline(cin, phoneNumber);
+	getline(std::cin, phoneNumber);
 
 	cout << "Customer Address: \n";
-	getline(cin, userAddress);
+	getline(std::cin, userAddress);
 }
 
 string getRoomChoice()
@@ -44,15 +54,15 @@ string getRoomChoice()
 
 int getTaskAssignment()
 {  //the possible task list
-   //enum task {paint, wallpaper, carpet, tile, woodFloor};
 	int task;
 	std::cout << "What job needs to be done?\n";
-	std::cout << "0: Wallpaper\n";
-	std::cout << "1: Paint\n";
+	std::cout << "0: Paint\n";
+	std::cout << "1: Wallpaper\n";
 	std::cout << "2: Carpet\n";
 	std::cout << "3: Tile\n";
 	std::cout << "4: Wood Floor\n";
 	cin >> task;
+	//std::cout<<"Task = "<<task;
 	return task;
 }
 
@@ -77,7 +87,6 @@ void printTask(int task)
 	default:
 		std::cout << " Ivalid task ";
 	}
-	return task;
 }
 
 void getRoomInformation(int task, float &roomWidth, float &roomDepth, float &roomHeight)
@@ -94,7 +103,7 @@ void getRoomInformation(int task, float &roomWidth, float &roomDepth, float &roo
 	}
 }
 
-void printJobInformation(string userName, string phoneNumber, string userAddress, string remodelRoom, int task)
+void printJobInformation(string userName, string phoneNumber, string userAddress, string      remodelRoom, int task)
 {//print user information. This is the only place the
  //remodel room string is used
 	cout << "\n\nPreparing order for:\n\n" << userName << "\n";
@@ -124,8 +133,8 @@ float calcWallPaperCost(float wallSurfaceArea)
 
 void printWallCostComparisons(float paintCost, float wallpaperCost)
 {//print the estimates for the wall coverings
-	std::cout << "\nPaint Estimate: <<paintCost<<"\n\n";
-		std::cout << "Wallpaper Estimate: " << wallpaperCost << "\n\n";
+	std::cout << "\nPaint Estimate: " << paintCost << "\n\n";
+	std::cout << "Wallpaper Estimate: " << wallpaperCost << "\n\n";
 }
 
 float calcFloorArea(float roomWidth, float roomDepth)
@@ -136,19 +145,20 @@ float calcCarpetCost(float floorArea)
 {//cost estimates are simply surface area times material per sq. foot
 	return CARPETCOST * floorArea;
 }
+
 float calcTileCost(float floorArea)
 {//cost estimates are simply surface area times material per sq. foot
 	return TILECOST * floorArea;
 }
+
 float calcWoodFloor(float floorArea)
 {//cost estimates are simply surface area times material per sq. foot
 	return WOODCOST * floorArea;
 }
+
 void printFloorCostComparisons(float carpetCost, float tileCost, float woodFloorCost)
 {//print the estimates for the floor coverings
 	cout << "\n\t\tCarpet Estimate: " << carpetCost;
 	cout << "\n\t\tTile Estimate: " << tileCost;
 	cout << "\n\t\tWood Estimate: " << woodFloorCost;
 }
-
-
