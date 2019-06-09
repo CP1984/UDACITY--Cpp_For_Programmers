@@ -1,0 +1,7 @@
+When we executed the above program, we first assigned the value 23 to the vector. Printing out the vector, we saw the value 23.
+
+Then we assigned 4 elements the value of 3. Printing out the vector again, we saw four 3s.
+
+What happened to the element with value 23? It was written over with a three.
+
+::Assign writes over the elements in the vector.
